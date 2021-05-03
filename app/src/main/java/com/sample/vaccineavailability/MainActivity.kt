@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
             //schedule periodic request.
         val checkVaccineAvailibilityWorkerRequest =
             PeriodicWorkRequest.Builder(VaccineAvailabilityWorker::class.java,
-                20, TimeUnit.MINUTES).build()
+                30, TimeUnit.MINUTES).build()
         WorkManager.getInstance(this)
             .enqueueUniquePeriodicWork(VaccineAvailabilityWorker::class.java.name,
                 ExistingPeriodicWorkPolicy.REPLACE,
