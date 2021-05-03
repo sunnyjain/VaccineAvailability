@@ -2,25 +2,23 @@ package com.sample.vaccineavailability
 
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.widget.addTextChangedListener
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.work.*
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.facebook.stetho.Stetho
 import com.sample.vaccineavailability.databinding.ActivityMainBinding
 import com.sample.vaccineavailability.network.*
 import retrofit2.Call
 import retrofit2.Response
 import java.util.concurrent.TimeUnit
-import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
