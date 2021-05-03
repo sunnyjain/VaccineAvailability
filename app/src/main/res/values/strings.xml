@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Vaccine Availability</string>
+
+    <string-array name="min_age_list">
+        <item>45</item>
+        <item>18</item>
+    </string-array>
+</resources>
