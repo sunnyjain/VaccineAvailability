@@ -8,7 +8,11 @@ import retrofit2.http.Query
 //todo: rename to something good maybe.
 interface SessionService {
     @GET("appointment/sessions/public/calendarByDistrict")
-    fun listAvailableCenters(@Query("district_id") distId: Int,
+    fun listAvailableCentersByDist(@Query("district_id") distId: Int,
+                             @Query("date") date: String): Call<Centers>
+
+    @GET("appointment/sessions/public/calendarByPin")
+    fun listAvailableCentersByPin(@Query("pincode") pincode: String,
                              @Query("date") date: String): Call<Centers>
 
     @GET("admin/location/states")

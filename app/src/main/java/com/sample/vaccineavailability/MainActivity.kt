@@ -138,12 +138,17 @@ class MainActivity : AppCompatActivity() {
         binding.checkNow.setOnClickListener {
             val sharedPref = getSharedPreferences("Info", Context.MODE_PRIVATE) ?: return@setOnClickListener
             with (sharedPref.edit()) {
-                putString("state", binding.states2.text.toString())
-                putString("district", binding.districts2.text.toString())
-                putInt("stateId", states.find { it.name.toLowerCase() ==
-                        binding.states2.text.toString().toLowerCase()}?.id ?: -1)
-                putInt("districtId", districts.find { it.name.toLowerCase() ==
-                        binding.districts2.text.toString().toLowerCase()}?.id ?: -1)
+                if(binding.pincode.text.isNotEmpty())  {
+                    putString("pincode", binding.pincode.text.toString())
+                } else {
+                    putString("state", binding.states2.text.toString())
+                    putString("district", binding.districts2.text.toString())
+                    putInt("stateId", states.find { it.name.toLowerCase() ==
+                            binding.states2.text.toString().toLowerCase()}?.id ?: -1)
+                    putInt("districtId", districts.find { it.name.toLowerCase() ==
+                            binding.districts2.text.toString().toLowerCase()}?.id ?: -1)
+                }
+
                 putInt("minAgeLimit", binding.minAge.text.toString().toInt())
                 apply()
             }
